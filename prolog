@@ -1,4 +1,4 @@
-:- style_check(-singleton).
+:- StyleCheck(-singleton).
 :- dynamic characteristic/2.
 :- dynamic character/8.
 :- dynamic clearBase/1.
@@ -6,7 +6,7 @@
 :- dynamic play/0.
 :- dynamic play/1.
 :- dynamic question_sexo/0.
-%:- dynamic question_mora/0.
+:- dynamic question_mora/0.
 %:- dynamic question_miojo/0.
 %:- dynamic question_idade/0.
 %:- dynamic question_smo/0.
@@ -27,8 +27,8 @@ clearBase1(X):- retract(X).
 % Name, Sexo, mora, Miojo, Idade, Smo, Curso, Barba, Sysmo
 % Respostas: Y(Sim) N(Não)
 
-character('Aline',          n).
-character('Patricia',	    y).
+character('Aline',          n,y).
+character('Patricia',	    n,n).
 
 %character('Aline',          n, y, n, n, n, n, n, n).
 %character('Patricia',          n, n, y, n, y, y, n, y).
@@ -112,8 +112,18 @@ question_sexo :-
   read(AnswerSexo),
   asserta(characteristic(sexo, AnswerSexo)),
   characteristic(sexo, SexoQuery),
-  findall(X, character(X, SexoQuery), L),
+  findall(X, character(X, SexoQuery,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery),
+  character(Z, SexoQuery,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+question_mora.
+question_mora :-
+  cls, print_splash, write('\t Mora em São Miguel do Oeste  (y/n)? '),
+  read(Answermora),
+  asserta(characteristic(mora, Answermora)),
+  characteristic(sexo, SexoQuery),
+  characteristic(mora, MoraQuery),
+  findall(X, character(X, SexoQuery, moraQuery), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round.
-
