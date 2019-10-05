@@ -1,6 +1,6 @@
-:- StyleCheck(-singleton).
+:- style_check(-singleton).
 :- dynamic characteristic/2.
-:- dynamic character/8.
+:- dynamic character/2.
 :- dynamic clearBase/1.
 :- dynamic clearBase1/1.
 :- dynamic play/0.
@@ -123,7 +123,8 @@ question_mora :-
   asserta(characteristic(mora, Answermora)),
   characteristic(sexo, SexoQuery),
   characteristic(mora, MoraQuery),
-  findall(X, character(X, SexoQuery, moraQuery), L),
+  findall(X, character(X, SexoQuery, MoraQuery), L),
   length(L, N), N == 1,
   character(Z, SexoQuery, MoraQuery),
-  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round.
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+  cls, print_splash, write('\tArghhh!!! Nao!!!'), new_round.
