@@ -1,12 +1,14 @@
 :- style_check(-singleton).
 :- dynamic characteristic/2.
-:- dynamic character/2.
+:- dynamic character/4.
 :- dynamic clearBase/1.
 :- dynamic clearBase1/1.
 :- dynamic play/0.
 :- dynamic play/1.
 :- dynamic question_sexo/0.
 :- dynamic question_mora/0.
+:- dynamic question_trabalha/0.
+
 %:- dynamic question_miojo/0.
 %:- dynamic question_idade/0.
 %:- dynamic question_smo/0.
@@ -27,8 +29,12 @@ clearBase1(X):- retract(X).
 % Name, Sexo, mora, Miojo, Idade, Smo, Curso, Barba, Sysmo
 % Respostas: Y(Sim) N(Não)
 
-character('Aline',          n,y).
-character('Patricia',	    n,n).
+character('Aline',          n,y,y).
+character('Patricia',	    n,n,n).
+character('Jordan',	    y,y,y).
+character('Felipe Amado',	    y,y,n).
+
+
 
 %character('Aline',          n, y, n, n, n, n, n, n).
 %character('Patricia',          n, n, y, n, y, y, n, y).
@@ -112,9 +118,9 @@ question_sexo :-
   read(AnswerSexo),
   asserta(characteristic(sexo, AnswerSexo)),
   characteristic(sexo, SexoQuery),
-  findall(X, character(X, SexoQuery,_), L),
+  findall(X, character(X, SexoQuery,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery,_),
+  character(Z, SexoQuery,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 question_mora.
 question_mora :-
@@ -123,8 +129,23 @@ question_mora :-
   asserta(characteristic(mora, Answermora)),
   characteristic(sexo, SexoQuery),
   characteristic(mora, MoraQuery),
-  findall(X, character(X, SexoQuery, MoraQuery), L),
+  findall(X, character(X, SexoQuery, MoraQuery,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery),
+  character(Z, SexoQuery, MoraQuery,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+question_trabalha.
+question_trabalha :-
+  cls, print_splash, write('\t Trabalha na sysmo?(y/n)? '),
+  read(Answertrabalha),
+  asserta(characteristic(trabalha, Answertrabalha)),
+  characteristic(sexo, SexoQuery),
+  characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
   cls, print_splash, write('\tArghhh!!! Nao!!!'), new_round.
