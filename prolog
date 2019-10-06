@@ -12,7 +12,9 @@
 :- dynamic question_carro/0.
 :- dynamic question_bandeirante/0.
 :- dynamic question_maravilha/0.
-
+:- dynamic question_seco/0.
+:- dynamic question_justo/0.
+:- dynamic question_unao/0.
 
 
 
@@ -25,18 +27,24 @@ clearBase(X):- clearBase1(X), fail.
 clearBase1(X):- retract(X).
   clearBase1(X).
 
-% Name, Sexo, mora, sysmo, oculos, Carro, bandeirantes, maravilha
-% Respostas: Y(Sim) N(Não)
+% Name, Sexo, mora, sysmo, oculos, Carro,bandeirantes,maravilha,seco,justino,unao
+%Respostas: Y(Sim) N(Não)
 
-character('Aline',          n,y,y,y,n,n,n).
-character('Patricia',	    n,n,n,y,n,n,n).
-character('Jordan',	    y,y,y,n,y,n,n).
-character('Felipe Amado',	    y,y,n,n,n,n,n).
-character('Jean',	    y,n,n,n,n,n,n).
-character('Pedro',	    y,n,n,y,n,n,n).
-character('Anderson',	    y,n,n,y,n,y,n).
-character('Jonathan',	    y,n,n,y,y,n,y).
-character('Gabriel',	    y,n,n,n,n,n,y).
+character('Aline',          n,y,y,y,n,n,n,n,n,n).
+character('Patricia',	    n,n,n,y,n,n,n,n,n,n).
+character('Jordan',	    y,y,y,n,y,n,n,n,n,n).
+character('Felipe Amado',   y,y,n,n,n,n,n,n,n,n).
+character('Jean',	    y,n,n,n,n,n,n,n,n,n).
+character('Pedro',	    y,n,n,y,n,n,n,n,n,n).
+character('Anderson',	    y,n,n,y,n,y,n,n,n,n).
+character('Jonathan',	    y,n,n,y,y,n,y,n,n,n).
+character('Gabriel',	    y,n,n,n,n,n,y,n,n,n).
+character('Luiz Seco',      y,y,y,n,n,n,n,y,n,n).
+character('Luis Justino',   y,y,y,y,n,n,n,n,y,n).
+character('Henrique',       y,y,y,n,y,n,n,n,n,y).
+
+
+
 
 
 
@@ -126,21 +134,21 @@ question_sexo :-
   write('\tVoce e do sexo masculino (y/n)? '),
   read(AnswerSexo),
   asserta(characteristic(sexo, AnswerSexo)),
-  characteristic(sexo, SexoQuery),
-  findall(X, character(X, SexoQuery,_,_,_,_,_,_), L),
+   characteristic(sexo, SexoQuery),
+  findall(X, character(X, SexoQuery,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery,_,_,_,_,_,_),
+  character(Z, SexoQuery,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 question_mora.
 question_mora :-
   cls, print_splash, write('\t Mora em São Miguel do Oeste  (y/n)? '),
   read(Answermora),
   asserta(characteristic(mora, Answermora)),
-  characteristic(sexo, SexoQuery),
-  characteristic(mora, MoraQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,_,_,_,_,_), L),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+  findall(X, character(X, SexoQuery, MoraQuery,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,_,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 question_trabalha.
@@ -152,9 +160,9 @@ question_trabalha :-
   characteristic(mora, MoraQuery),
    characteristic(trabalha, TrabalhaQuery),
 
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -169,9 +177,9 @@ question_oculos :-
    characteristic(oculos, OculosQuery),
 
 
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -180,14 +188,14 @@ question_carro :-
   cls, print_splash, write('\t Tem carro ?(y/n)? '),
   read(Answercarro),
   asserta(characteristic(carro, Answercarro)),
-  characteristic(sexo, SexoQuery),
-  characteristic(mora, MoraQuery),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
    characteristic(trabalha, TrabalhaQuery),
    characteristic(oculos, OculosQuery),
    characteristic(carro, CarroQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
  question_bandeirante.
@@ -195,38 +203,96 @@ question_bandeirante :-
   cls, print_splash, write('\t Mora em bandeirantes ?(y/n)? '),
   read(Answerbandeirante),
   asserta(characteristic(bandeirante, Answerbandeirante)),
-  characteristic(sexo, SexoQuery),
-  characteristic(mora, MoraQuery),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
    characteristic(trabalha, TrabalhaQuery),
    characteristic(oculos, OculosQuery),
    characteristic(carro, CarroQuery),
    characteristic(bandeirante, BandeiranteQuery),
-
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
 
 
    question_maravilha.
 question_maravilha :-
-  cls, print_splash, write('\t Mora em maravilha?(y/n)? '),
+  cls, print_splash, write('\t Mora em maravilha ?(y/n)? '),
   read(Answermaravilha),
   asserta(characteristic(maravilha, Answermaravilha)),
-  characteristic(sexo, SexoQuery),
-  characteristic(mora, MoraQuery),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
    characteristic(trabalha, TrabalhaQuery),
    characteristic(oculos, OculosQuery),
    characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
    characteristic(maravilha, MaravilhaQuery),
-
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,MaravilhaQuery), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,MaravilhaQuery),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,_,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+ question_seco.
+question_seco:-
+ cls, print_splash, write('\t O bicho é seco?(y/n)? '),
+  read(Answerseco),
+  asserta(characteristic(seco, Answerseco)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,_,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+
+  question_justo.
+question_justo:-
+ cls, print_splash, write('\t É conhecido como Justo?(y/n)? '),
+  read(Answerjusto),
+  asserta(characteristic(seco, Answerjusto)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+
+
+
+  question_unao.
+question_unao:-
+ cls, print_splash, write('\t Tem um unão ?(y/n)? '),
+  read(Answerunao),
+  asserta(characteristic(unao, Answerunao)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(unao,UnaoQuery),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,UnaoQuery), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,UnaoQuery),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
   cls, print_splash, write('\tArghhh!!! Nao!!!'), new_round.
-
-
-
 
