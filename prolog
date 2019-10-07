@@ -1,6 +1,6 @@
 :- style_check(-singleton).
 :- dynamic characteristic/2.
-:- dynamic character/7.
+:- dynamic character/21.
 :- dynamic clearBase/1.
 :- dynamic clearBase1/1.
 :- dynamic play/0.
@@ -16,6 +16,16 @@
 :- dynamic question_justo/0.
 :- dynamic question_unao/0.
 :- dynamic question_violao/0.
+:- dynamic question_carroemoto/0.
+:- dynamic question_bomjesus/0.
+:- dynamic question_golcinza/0.
+:- dynamic question_biz/0.
+:- dynamic question_campoere/0.
+:- dynamic question_prefeitura/0.
+:- dynamic question_react/0.
+
+
+
 
 
 
@@ -29,70 +39,41 @@ clearBase(X):- clearBase1(X), fail.
 clearBase1(X):- retract(X).
   clearBase1(X).
 
-% Name, Sexo, mora, sysmo, oculos, Carro,bandeirantes,maravilha,seco,justino,unao
-%Respostas: Y(Sim) N(Não)
+% Name, Sexo, mora, sysmo, oculos,Carro,bandeirantes,maravilha,seco,justino,violao,unao,carroemoto,bom jesus,golcinza,biz,campoere,prefeitura,react
+% Respostas: Y(Sim) N(Não)
 
-character('Aline',          n,y,y,y,n,n,n,n,n,n,n).
-character('Patricia',	    n,n,n,y,n,n,n,n,n,n,n).
-character('Jordan',	    y,y,y,n,y,n,n,n,n,n,n).
-character('Felipe Amado',   y,y,n,n,n,n,n,n,n,n,n).
-character('Jean',	    y,n,n,n,n,n,n,n,n,n,n).
-character('Pedro',	    y,n,n,y,n,n,n,n,n,n,n).
-character('Anderson',	    y,n,n,y,n,y,n,n,n,n,n).
-character('Jonathan',	    y,n,n,y,y,n,y,n,n,n,n).
-character('Gabriel',	    y,n,n,n,n,n,y,n,n,n,n).
-character('Luiz Seco',      y,y,y,n,n,n,n,y,n,n,n).
-character('Luis Justino',   y,y,y,y,n,n,n,n,y,n,n).
-character('Henrique',       y,y,y,n,y,n,n,n,n,n,y).
-character('Jackson',        y,y,y,n,y,n,n,n,n,y,n).
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-%character('Jordan',         y, y, n, y, y, y, n, n).
-%character('Pedro',      y, n, y, y, n, n, n, n).
-%character('Jean',          y, y, y, y, y, n, n, n).
-%character('Anderson',          y, n, n, y, y, y, n, n).
-%character('Alexandre',  y, y, n, y, y, y, y, n).
-%character('Dionatta',          y, y, n, y, n, y, y, n).
-%character('Felipe Finger',            y, n, n, n, n, y, y, n).
-%character('Felipe Amado',          y, y, y, n, y, n, n, n).
-%character('Henrique',            y, n, n, n, y, n, y, n).
-%character('Jackson',           y, y, n, n, n, y, y, n).
-%character('Joao Paulo',        y, y, n, n, y, y, y, y).
-%character('Junior',            y, y, n, n, y, y, n, y).
-%character('João vitor',           y, y, y, n, n, n, y, n).
-%character('Jonathan',          y, y, y, n, n, n, n, n).
-%character('Leonardo',           y, n, y, n, y, y, y, y).
-%character('Luis Justino',      y, n, y, n, y, y, n, y).
-%character('Luiz Seco',         y, y, y, n, n, y, y, n).
-%character('Tiago',           y, y, y, n, n, y, y, y).
-%character('Gabriel',           y, y, y, n, n, y, y, y).
-%character('Natan',           y, y, y, n, n, y, y, y).
-
-
-
+character('Aline',         n,y,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n).
+character('Patricia',      n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n).
+character('Pedro',         y,n,n,y,n,n,n,n,n,n,n,n,n,n,n,n,n,n).
+character('Jean',          y,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n).
+character('Anderson',      y,n,n,y,n,y,n,n,n,n,n,n,n,n,n,n,n,n).
+character('Alexandre',     y,y,y,y,y,n,n,n,n,n,n,n,n,n,n,n,n,n).
+character('dionatta',      y,n,n,n,n,n,n,n,n,n,n,n,y,n,n,n,n,n).
+character('Felipe Finger', y,y,y,n,y,n,n,n,n,n,n,y,n,n,n,n,n,n).
+character('Felipe Amad',   y,y,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n,n).
+character('Henrique',      y,y,y,n,y,n,n,n,n,n,y,n,n,n,n,n,n,n).
+character('Jackson',       y,y,y,n,y,n,n,n,n,y,n,n,n,n,n,n,n,n).
+character('Joao Paulo',    y,y,y,y,y,n,n,n,n,n,n,n,n,y,n,n,n,n).
+character('Junior',        y,y,y,n,n,n,n,n,n,n,n,n,n,n,y,n,n,n).
+character('Joao Vitor',    y,n,n,n,n,n,n,n,n,n,n,n,n,n,n,y,n,n).
+character('Jonathan ',     y,n,n,y,y,n,y,n,n,n,n,y,n,n,y,n,n,n).
+character('Leonardo',      y,y,n,y,n,n,n,n,n,n,n,n,n,n,n,n,y,n).
+character('Luis (Justo de mais)', y,y,y,y,n,n,n,n,y,n,n,n,n,n,n,n,n,n).
+character('Luiz (Cara é seco memo)',y,y,y,n,n,n,n,y,n,n,n,n,n,n,n,n,n,n).
+character('Tiago',         y,y,y,n,y,n,n,n,n,n,n,n,n,n,n,n,n,y).
+character('Gabriel',       y,n,n,n,n,n,y,n,n,n,n,n,n,n,n,n,n,n).
+character('Natan',         y,y,y,y,n,n,n,n,n,n,n,n,n,n,n,n,n,n).
 
 play :-
   clearBase(characteristic(Characteristic, Yn)),
-  nl, cls, print_splash, write('\tBem-vindo ao Akinator da Computacao!'), nl, nl,
+  nl, cls, print_splash, write('\tBem-vindo ao Akinator Abacaxi!'), nl, nl,
   question_sexo.
 
 play(y) :-
   play.
 
 play(n) :-
-  nl, write('\tObrigado por utilizar o Akinator da Computacao!'), nl, nl, !.
+  nl, write('\tObrigado por utilizar o Akinator Abacaxi!'), nl, nl, !.
 
 new_round :-
   nl, nl, write('\tVoce gostaria de adivinhar outro personagem (y/n)? '),
@@ -135,13 +116,13 @@ cls :-
   format('~c~s', [0x1b, "[2J"]).
 
 question_sexo :-
-  write('\tVoce e do sexo masculino (y/n)? '),
+  write('\t É do sexo masculino (y/n)? '),
   read(AnswerSexo),
   asserta(characteristic(sexo, AnswerSexo)),
    characteristic(sexo, SexoQuery),
-  findall(X, character(X, SexoQuery,_,_,_,_,_,_,_,_,_,_), L),
+  findall(X, character(X, SexoQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery,_,_,_,_,_,_,_,_,_,_),
+  character(Z, SexoQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 question_mora.
 question_mora :-
@@ -150,9 +131,9 @@ question_mora :-
   asserta(characteristic(mora, Answermora)),
    characteristic(sexo, SexoQuery),
    characteristic(mora, MoraQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,_,_,_,_,_,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,_,_,_,_,_,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 question_trabalha.
@@ -164,9 +145,9 @@ question_trabalha :-
   characteristic(mora, MoraQuery),
    characteristic(trabalha, TrabalhaQuery),
 
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -181,9 +162,9 @@ question_oculos :-
    characteristic(oculos, OculosQuery),
 
 
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,_,_,_,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,_,_,_,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,_,_,_,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -197,9 +178,9 @@ question_carro :-
    characteristic(trabalha, TrabalhaQuery),
    characteristic(oculos, OculosQuery),
    characteristic(carro, CarroQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,_,_,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,_,_,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,_,_,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,_,_,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
  question_bandeirante.
@@ -213,9 +194,9 @@ question_bandeirante :-
    characteristic(oculos, OculosQuery),
    characteristic(carro, CarroQuery),
    characteristic(bandeirante, BandeiranteQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,_,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,_,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,_,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,_,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -232,9 +213,9 @@ question_maravilha :-
    characteristic(carro, CarroQuery),
    characteristic(bandeirante, BandeiranteQuery),
    characteristic(maravilha, MaravilhaQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,_,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,_,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,_,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,_,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
  question_seco.
@@ -250,9 +231,9 @@ question_seco:-
    characteristic(bandeirante, BandeiranteQuery),
    characteristic(maravilha, MaravilhaQuery),
    characteristic(seco,SecoQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,_,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,_,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,_,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,_,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -270,9 +251,9 @@ question_justo:-
    characteristic(maravilha, MaravilhaQuery),
    characteristic(seco,SecoQuery),
    characteristic(justo,JustoQuery),
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,_,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,_,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,_,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,_,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
  question_violao.
@@ -291,9 +272,9 @@ question_violao:-
    characteristic(justo,JustoQuery),
    characteristic(violao,ViolaoQuery),
 
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,_), L),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,_,_,_,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,_),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,_,_,_,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
@@ -308,22 +289,208 @@ question_unao :-
    characteristic(oculos, OculosQuery),
    characteristic(carro, CarroQuery),
    characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,_,_,_,_,_,_,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,_,_,_,_,_,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+
+  question_carroemoto.
+question_carroemoto :-
+  cls, print_splash, write('\t Tem Carro e moto(rico) ?(y/n)? '),
+  read(Answercarroemoto),
+  asserta(characteristic(carroemoto, Answercarroemoto)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,_,_,_,_,_,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,_,_,_,_,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+  question_bomjesus.
+question_bomjesus :-
+  cls, print_splash, write('\t Mora em bom jesus ?(y/n)? '),
+  read(Answerbomjesus),
+  asserta(characteristic(bomjesus, Answerbomjesus)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
     characteristic(bandeirante, BandeiranteQuery),
    characteristic(maravilha, MaravilhaQuery),
    characteristic(seco,SecoQuery),
    characteristic(justo,JustoQuery),
    characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+   characteristic(bomjesus,BomjesusQuery),
 
-    characteristic(unao,UnaoQuery),
 
-  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery), L),
+
+  findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,_,_,_,_,_), L),
   length(L, N), N == 1,
-  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery),
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,_,_,_,_,_),
   cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
-cls, print_splash, write('\tArghhh!!! Nao!!!'), new_round.
+  question_golcinza.
+question_golcinza :-
+  cls, print_splash, write('\t Tem um gol cinza? ?(y/n)? '),
+  read(Answergolcinza),
+  asserta(characteristic(golcinza, Answergolcinza)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+    characteristic(bomjesus,BomjesusQuery),
+    characteristic(golcinza,GolcinzaQuery),
+findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,_,_,_,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,_,_,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
 
 
 
 
+
+  question_biz.
+question_biz :-
+  cls, print_splash, write('\t Tem uma biz? ?(y/n)? '),
+  read(Answerbiz),
+  asserta(characteristic(biz, Answerbiz)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+   characteristic(bomjesus,BomjesusQuery),
+   characteristic(golcinza,GolcinzaQuery),
+   characteristic(biz,BizQuery),
+findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,_,_,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,_,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que é... '), write(Z), write('!'), new_round;
+
+  question_campoere.
+question_campoere :-
+  cls, print_splash, write('\t Mora em campo ere(terra do facão) ?(y/n)? '),
+  read(Answercampoere),
+  asserta(characteristic(campoere, Answercampoere)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+   characteristic(bomjesus,BomjesusQuery),
+   characteristic(golcinza,GolcinzaQuery),
+   characteristic(biz,BizQuery),
+   characteristic(campoere,CampoereQuery),
+findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,CampoereQuery,_,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,CampoereQuery,_,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+
+    question_prefeitura.
+question_prefeitura :-
+  cls, print_splash, write('\t Trabalha na prefeitura ?(y/n)? '),
+  read(Answerprefeitura),
+  asserta(characteristic(prefeitura, Answerprefeitura)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+   characteristic(bomjesus,BomjesusQuery),
+   characteristic(golcinza,GolcinzaQuery),
+   characteristic(biz,BizQuery),
+   characteristic(campoere,CampoereQuery),
+   characteristic(prefeitura,PrefeituraQuery),
+findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,CampoereQuery,PrefeituraQuery,_), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,CampoereQuery,PrefeituraQuery,_),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+  question_react.
+question_react :-
+  cls, print_splash, write('\t É fã de react ?(y/n)? '),
+  read(Answerreact),
+  asserta(characteristic(prefeitura, Answerreact)),
+   characteristic(sexo, SexoQuery),
+   characteristic(mora, MoraQuery),
+   characteristic(trabalha, TrabalhaQuery),
+   characteristic(oculos, OculosQuery),
+   characteristic(carro, CarroQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(bandeirante, BandeiranteQuery),
+   characteristic(maravilha, MaravilhaQuery),
+   characteristic(seco,SecoQuery),
+   characteristic(justo,JustoQuery),
+   characteristic(violao,ViolaoQuery),
+   characteristic(unao,UnaoQuery),
+   characteristic(carroemoto,CarroemotoQuery),
+   characteristic(bomjesus,BomjesusQuery),
+   characteristic(golcinza,GolcinzaQuery),
+   characteristic(biz,BizQuery),
+   characteristic(campoere,CampoereQuery),
+   characteristic(prefeitura,PrefeituraQuery),
+   characteristic(react,ReactQuery),
+findall(X, character(X, SexoQuery, MoraQuery,TrabalhaQuery, OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,CampoereQuery,PrefeituraQuery,ReactQuery), L),
+  length(L, N), N == 1,
+  character(Z, SexoQuery, MoraQuery,TrabalhaQuery,OculosQuery,CarroQuery,BandeiranteQuery,MaravilhaQuery,SecoQuery,JustoQuery,ViolaoQuery,UnaoQuery,CarroemotoQuery,BomjesusQuery,GolcinzaQuery,BizQuery,CampoereQuery,PrefeituraQuery,ReactQuery),
+  cls, print_splash, write('\tHmm... Eu acho que... '), write(Z), write('!'), new_round;
+
+
+cls, print_splash, write('\tArghhh!!! Nao, perdão mais infelizmente não sei quem possa ser!!!'), new_round.
